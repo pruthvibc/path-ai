@@ -12,6 +12,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ||'http://localhost:8000';
+
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function getCategory(skill: string) {
@@ -98,7 +101,7 @@ export default function SkillGapAnalysis() {
 
     const fetchData = async () => {
       try {
-        const res  = await fetch(`http://localhost:8000/api/hindsight?user_id=${encodeURIComponent(userId)}`);
+        const res  = await fetch(`${BASE_URL}/api/hindsight?user_id=${encodeURIComponent(userId)}`);
         const data = await res.json();
         const memories: string[] = data.memories || [];
 

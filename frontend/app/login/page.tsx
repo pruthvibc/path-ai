@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ||'http://localhost:8000';
+
 /* ─────────────────────────────────────────────
    TYPES
 ───────────────────────────────────────────── */
@@ -439,7 +441,7 @@ export default function LandingPage() {
 
     setAuthStatus('loading');
     try {
-      const res = await fetch(`http://localhost:8000/api/${authMode}`, {
+      const res = await fetch(`${BASE_URL}/api/${authMode}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: u, password: p }),

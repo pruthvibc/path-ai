@@ -14,6 +14,8 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ||'http://localhost:8000';
+
 // ── Types ────────────────────────────────────────────────────────────────────
 interface SubScores { clarity: number; relevance: number; impact: number; professionalism: number }
 interface Mistake { text: string; issue: string; severity: 'high' | 'medium' | 'low'; fix: string }
@@ -198,7 +200,7 @@ export default function SelfIntroCoach() {
     setIsAnalyzing(true);
     setResult(null);
     try {
-      const res = await fetch('http://localhost:8000/api/analyze-intro', {
+      const res = await fetch(`${BASE_URL}/api/analyze-intro`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -224,7 +226,7 @@ export default function SelfIntroCoach() {
     if (!result) return;
     setIsRegenerating(true);
     try {
-      const res = await fetch('http://localhost:8000/api/regenerate-intro', {
+      const res = await fetch(`${BASE_URL}/api/regenerate-intro`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

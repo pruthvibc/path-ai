@@ -13,6 +13,8 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ||'http://localhost:8000';
+
 // ── Sidebar Item ──────────────────────────────────────────────────────────────
 function SidebarItem({ icon, label, href = '#', active = false }: any) {
   return (
@@ -157,7 +159,7 @@ export default function MockInterviewStudio() {
         content: m.text,
       }));
 
-      const response = await fetch('http://127.0.0.1:8000/api/chat', {
+      const response = await fetch(`${BASE_URL}/api/chat`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -369,7 +371,7 @@ export default function MockInterviewStudio() {
     qNumRef.current = 1;
     setQNum(1);
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/chat', {
+      const response = await fetch(`${BASE_URL}/api/chat`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

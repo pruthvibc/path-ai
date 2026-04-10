@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ||'http://localhost:8000';
 
 // ─── College databases ────────────────────────────────────────────────────────
 const GATE_COLLEGES = [
