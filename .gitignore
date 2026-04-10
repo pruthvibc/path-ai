@@ -1,0 +1,37 @@
+node_modules
+.next
+.env
+.env.local
+build
+distnode_modules/
+.next/
+.env
+.env.local
+build/
+dist/
+venv/=
+__pycache__/
+*.pyc
+memory.json
+```
+
+The additions:
+- `venv/` — your Python virtual environment
+- `__pycache__/` and `*.pyc` — Python cache files
+- `memory.json` — contains user data, shouldn't be in git
+
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# Sensitive data
+backend/memory.json
+
+# Node
+frontend/node_modules/
+
+# Build output
+frontend/.next/
