@@ -9,3 +9,4 @@ pydantic
 PyPDF2
 requests
 python-docx
+lxml
